@@ -15,5 +15,5 @@ function PlantItem({name,cover, id, light, water}) {
                 </li>
     </div>)
 }
-
+// 
 export default PlantItem
