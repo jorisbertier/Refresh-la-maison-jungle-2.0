@@ -1,4 +1,5 @@
 import { plantList } from "../datas/plantList"
+import '../styles/ShoppingList.css'
 function ShoppingList() {
     // console.log(plantList)
     let categoryPlantList = plantList.map((plant) => plant.category)
@@ -15,9 +16,9 @@ function ShoppingList() {
                     <li key={`${category}-${index}`}>{category}</li>
                 ))}
             </ul>
-            <ul>
+            <ul className='lmj-plant-list'>
                 {plantList.map((plant, index) => (
-                    <li key={`${plant.name}-${index}`}>{plant.name}</li>
+                    <li key={`${plant.name}-${index}`} className='lmj-plant-item'>{plant.name}</li>
                 ))}
             </ul>
         </div>
