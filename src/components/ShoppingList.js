@@ -1,15 +1,11 @@
 import { plantList } from "../datas/plantList"
-import CareScale from "./CareScale"
 import '../styles/ShoppingList.css'
+import PlantItem from "./PlantItem"
 
 function ShoppingList() {
-    // console.log(plantList)
     let categoryPlantList = plantList.map((plant) => plant.category)
     categoryPlantList = [...new Set(categoryPlantList)]
-    // let categoryPlantList = plantList.reduce((acc, plant) =>
-    //     acc.includes(plant.category) ? acc : acc.concat(plant.category),
-    // []
-    // )
+
     console.log(categoryPlantList)
     return (
         <div>
@@ -19,14 +15,11 @@ function ShoppingList() {
                 ))}
             </ul>
             <ul className='lmj-plant-list'>
-                {plantList.map((plant, index) => (
-                    <li key={`${plant.name}-${index}`} className='lmj-plant-item'>
-                        {plant.name} {plant.isSpecialOffer && <div className="lmj-sales">Soldes</div>}
-                        <CareScale scaleValue={plant.light} />
-                    </li>
-                    
+                {plantList.map(({id, name, cover, light, water}) => (
+                    <PlantItem key={id} name={name} cover={cover} id={id} light={light} water={water}/>
                 ))}
             </ul>
+            
         </div>
     )
 }
