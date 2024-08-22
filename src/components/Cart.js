@@ -1,9 +1,9 @@
 import '../styles/Cart.css'
 import { useState } from 'react'
 
-function Cart() {
+function Cart({cart, updateCart}) {
     const monsteraPrice = 8
-    let [cart, updateCart] = useState(0)
+    
     const [isOpen, setIsOpen] = useState(false)
 
     function handleCart() {
