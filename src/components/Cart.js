@@ -11,6 +11,17 @@ function Cart({cart, updateCart}) {
         document.title = `LMJ: ${total}€ d'achats`
     },[total])
 
+    function handleDelete(indexSelected, amount) {
+        const updatedCart = [...cart]
+        console.log(updatedCart[indexSelected])
+        if(updatedCart[indexSelected].amount > 1) {
+            updatedCart[indexSelected].amount -= 1
+        }else  {
+            updatedCart.splice(indexSelected, 1)
+        }
+        updateCart(updatedCart)
+    }
+
 	return isOpen ? (
 		<div className='lmj-cart'>
 			<button
@@ -24,9 +35,12 @@ function Cart({cart, updateCart}) {
 					<h2>Panier</h2>
 					<ul>
 						{cart.map(({ name, price, amount }, index) => (
-							<div key={`${name}-${index}`}>
-								{name} {price}€ x {amount}
-							</div>
+                            <div key={`${name}-${index}`}>
+                                <div>
+                                    {name} {price}€ x {amount}
+                                </div>
+                                <div className='delete'onClick={() => handleDelete(index, amount)}>X</div>
+                            </div>
 						))}
 					</ul>
 					<h3>Total :{total}€</h3>
