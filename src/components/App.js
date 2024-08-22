@@ -15,7 +15,7 @@ function App() {
         <h1 className='lmj-title'>La maison Jungle</h1>
       </Banner>
       <Cart cart={cart} updateCart={updateCart}/>
-      <ShoppingList/>
+      <ShoppingList cart={cart} updateCart={updateCart}/>
       <Footer/>
     </div>
   );
