@@ -11,7 +11,7 @@ function ShoppingList({cart, updateCart}) {
 
 	function addToCart(name, price) {
 		const currentPlantSaved = cart.find((plant) => plant.name === name)
-        
+
 		if (currentPlantSaved) {
 			const cartFilteredCurrentPlant = cart.filter(
 				(plant) => plant.name !== name
