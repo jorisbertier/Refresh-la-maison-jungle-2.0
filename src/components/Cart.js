@@ -21,7 +21,7 @@ function Cart({cart, updateCart}) {
         }
         updateCart(updatedCart)
     }
-
+// comment
 	return isOpen ? (
 		<div className='lmj-cart'>
 			<button
